@@ -31,7 +31,7 @@ class CANApp:
         # Buttons
         tk.Button(root, text="Start CAN", command=self.start_can).grid(row=2, column=1, padx=70, pady=5, sticky="e")
         tk.Button(root, text="Send Test Message", command=self.send_test_message).grid(row=3, column=0, padx=20, pady=5, sticky="w")
-        self.test_button = tk.Button(root, text="Get PWB Status", command=self.toggle_listening)
+        self.test_button = tk.Button(root, text="Get Status", command=self.toggle_listening)
         self.test_button.grid(row=3, column=1, padx=0, pady=5, sticky="w")
 
 
@@ -91,7 +91,7 @@ class CANApp:
             self.listening_thread = threading.Thread(target=self.listening_process, daemon=True)
             self.listening_thread.start()
         else:
-            self.test_button.config(text="Get PWB Status")
+            self.test_button.config(text="Get Status")
             self.log_message("Stop signal received. Listening will stop shortly.")
 
     def listening_process(self):
@@ -99,11 +99,11 @@ class CANApp:
         if not self.bus:
             self.log_message("Error: CAN bus not initialized.")
             self.listening = False
-            self.test_button.config(text="Get PWB Status")
+            self.test_button.config(text="Get  Status")
             return
 
         try:
-            # record data from pwb
+            # record data from 
             received_a2 = False
             received_a3 = False
             received_f1 = False   
@@ -164,23 +164,23 @@ class CANApp:
         except (IndexError, AttributeError) as e:
             self.log_message(f"Error: {e}")
         finally:
-            self.test_button.config(text="Get PWB Status")
+            self.test_button.config(text="Get  Status")
             if not self.listening:
                 self.log_message("Listening stopped.")
                 # Log final results
             self.listening = False  # Reset the stop flag 
             try:
-                self.log_message(f"24V Controller Voltage: {a2_bytes[0]}V")
+                self.log_message(f"...: {a2_bytes[0]}V")
             except (IndexError, AttributeError):
-                self.log_message("Error: 24V Controller Voltage message not received.")
+                self.log_message("Error: ... message not received.")
             try:
-                self.log_message(f"24V Car Voltage: {a2_bytes[1]}V")
+                self.log_message(f"...: {a2_bytes[1]}V")
             except (IndexError, AttributeError):
-                self.log_message("Error: 24V Car Voltage message not received.")
+                self.log_message("Error: ... message not received.")
             try:
-                self.log_message(f"24V Car Light: {a2_bytes[2]}V")
+                self.log_message(f"...: {a2_bytes[2]}V")
             except (IndexError, AttributeError):
-                self.log_message("Error: 24V Car Light message not received.")
+                self.log_message("Error: ... message not received.")
             try:
                 self.log_message(f"Safety Voltage: {a2_bytes[3]}V")
             except (IndexError, AttributeError):
@@ -199,13 +199,13 @@ class CANApp:
                 self.log_message("Error: Emergency Voltage message not received.")
             try:
                 if shaftPowerOff:
-                    self.log_message("Shaft Power is Off. Try sending the Test Message again.")
+                    self.log_message("... is Off. Try sending the Test Message again.")
             except AttributeError:
-                self.log_message("Error: Shaft Power Off status not available.")
+                self.log_message("Error: ... status not available.")
             if canTimeout:
-                self.log_message("Fault: The PWB has not received a CAN message for more than 10 seconds.")
+                self.log_message("Fault: The ... has not received a CAN message for more than 10 seconds.")
             if battHarnFault:
-                self.log_message("Fault: The battery is connected, but the battery temp sensor harness is not connected.")
+                self.log_message("Fault: The battery is connected, but the battery ... harness is not connected.")
 
 
     def send_test_message(self):
@@ -217,7 +217,7 @@ class CANApp:
             # send the test data
             msg = can.Message(
                 arbitration_id=0x56,
-                data = [0xB1, 0xBE, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00],    #[0, 25, 0, 1, 3, 1, 4, 1],
+                data = 0x00 # data for test message here
                 is_extended_id=False        # double check this
             )
             self.bus.send(msg)
