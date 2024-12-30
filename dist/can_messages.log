@@ -1,0 +1,32 @@
+2024-11-22 16:03:25,862 - Error starting CAN bus: Cannot import module can.interfaces.slcan for CAN interface 'slcan': No module named 'can.interfaces.slcan'
+2024-11-22 16:03:40,385 - Error starting CAN bus: Cannot import module can.interfaces.slcan for CAN interface 'slcan': No module named 'can.interfaces.slcan'
+2024-11-22 16:06:13,726 - Connected to CAN bus on COM12 with bitrate 100000.
+2024-11-22 16:06:15,529 - Message sent: ID=86, Data=[177, 190, 224, 0, 0, 0, 0, 0]
+2024-11-22 16:06:15,529 - Completed.
+2024-11-22 16:06:16,785 - Listening for CAN messages.
+2024-11-22 16:06:19,673 - Stop signal received. Listening will stop shortly.
+2024-11-22 16:06:19,800 - Listening stopped.
+2024-11-22 16:06:26,905 - Listening for CAN messages.
+2024-11-22 16:06:30,084 - Stop signal received. Listening will stop shortly.
+2024-11-22 16:06:30,917 - Listening stopped.
+2024-11-22 16:06:34,146 - CAN bus closed.
+2024-11-25 08:29:10,372 - Error starting CAN bus: could not open port 'COM0': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2024-11-25 08:29:11,587 - Error: CAN bus not initialized.
+2024-11-25 08:29:13,461 - Error: CAN bus not initialized.
+2024-11-25 09:17:51,947 - Connected to CAN bus on COM12 with bitrate 100000.
+2024-11-25 09:17:54,246 - Message sent: ID=86, Data=[177, 190, 224, 0, 0, 0, 0, 0]
+2024-11-25 09:17:54,246 - Completed.
+2024-11-25 09:18:05,232 - Listening for CAN messages.
+2024-11-25 09:18:05,237 - Received: ID=0x55, Data=[161, 208, 24, 0, 0, 0, 0, 0], Timestamp=1732544285.2332501
+2024-11-25 09:18:05,249 - Received: ID=0x55, Data=[162, 24, 24, 24, 49, 49, 49, 14], Timestamp=1732544285.2375152
+2024-11-25 09:18:05,257 - A2 Bytes Saved: [24, 24, 24, 49, 49, 49, 14]
+2024-11-25 09:18:05,265 - Received: ID=0x55, Data=[163, 0, 0, 128, 0, 0, 0, 0], Timestamp=1732544285.2582774
+2024-11-25 09:18:05,273 - Shaft Power Off detected (A3).
+2024-11-25 09:18:05,281 - Received: ID=0x55, Data=[164, 0, 0, 0, 0, 0, 0, 0], Timestamp=1732544285.27354
+2024-11-25 09:18:05,285 - Received: ID=0x55, Data=[165, 0, 0, 3, 0, 0, 0, 0], Timestamp=1732544285.2821708
+2024-11-25 09:18:05,292 - Received: ID=0x55, Data=[241, 0, 0, 0, 0, 64, 0, 0], Timestamp=1732544285.2862136
+2024-11-25 09:18:05,298 - CAN Timeout detected (F1).
+2024-11-25 09:18:05,304 - All required messages received. Exiting early.
+2024-11-25 09:19:16,386 - Stop signal received. Listening will stop shortly.
+2024-11-25 09:19:59,561 - CAN bus closed.
+2024-11-25 11:09:40,443 - Error starting CAN bus: could not open port 'COM12': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
